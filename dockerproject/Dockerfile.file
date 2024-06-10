@@ -1,0 +1,23 @@
+FROM python:3
+
+# Create a directory named "data" inside the container
+RUN mkdir /data
+
+# Set the working directory in the container
+WORKDIR /data
+
+# Copy the entire Dockerproject directory into the container
+COPY app.py /data/
+COPY requirements.txt /data/
+COPY test.py /data/
+COPY models /data/
+COPY static /data/
+COPY templates /data/
+COPY test.py /data/
+RUN  python -m pip install --upgrade pip 
+
+# Install Python dependencies
+RUN pip install -r requirements.txt
+
+# Command to run your application
+CMD ["python", "./app.py"]

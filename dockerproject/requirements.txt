@@ -1,0 +1,6 @@
+pytest
+flask
+numpy
+requests
+xgboost
+scikit-learn
